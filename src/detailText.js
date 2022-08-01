@@ -1,6 +1,9 @@
-export const InitalDetails = () => {
+export const InitalDetails = (props) => {
 
-    return (<h2>Thanks so much for your interest in my work! </h2>);
+    return (<div>
+        <h2> {props.title} </h2>
+        <p>{props.info}</p>
+        </div>);
     
     
 }

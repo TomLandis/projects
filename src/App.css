@@ -5,6 +5,7 @@
   padding: 1em;
   grid-gap: 1em;
   align-items:flex-start;
+  background-color: #d5ded7;
 }
 #details{
   position: sticky;
