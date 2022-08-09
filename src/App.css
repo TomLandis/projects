@@ -62,6 +62,9 @@
   --darkgreen: #bddbbe;
   --brown: #99947a;
 }
+.badgeOfHonor img{
+  height:30px;
+}
 .badgeOfHonor {
   display: flex;
   height: 30px;
@@ -70,7 +73,7 @@
   border-radius: 5px;
   background-color: var(--offwhite);
   margin: 1em;
-}
+  }
 .ptitle {
   font-family: "GFS Neohellenic", sans-serif;
   font-size: 1.8em;
@@ -124,7 +127,16 @@
 .twocol img {
   max-width: 50%;
 }
-
+.codepen {
+  height: 300px;
+  box-sizing: border-box;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  border: 2px solid; 
+  margin: 1em 0; 
+  padding: 1em;
+}
 @media only screen and (max-width: 680px) {
   .twocol {
     flex-direction: column;

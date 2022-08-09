@@ -1,26 +1,61 @@
 import logo from './logo.svg';
 import './App.css';
 import { InitalDetails } from './detailText';
+import { CodePenEmbed } from './codepenembed';
+import { FullCPembed } from './FullCodePenEmbed';
 import React from 'react';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    let init =  [{text: "To find out details of how I leveraged technologies like JavaScript, PHP, WordPress, NodeJS, mogoDB, bash scripting, PowerShell and more, click on the coresponding technology logos in my project descriptions."}];
     this.state = {
       title: "Thanks so much for your interest in my work!",
-      info: " To find out details of how I leveraged technologies like JavaScript, PHP, WordPress, NodeJS, mogoDB, bash scripting, PowerShell and more, click on the coresponding technology logos in my project descriptions."
+      info: init
       
     };
   }
   updateDetails(name){
-
+const phpInFRS = {
+  title: "PHP in Fancy Roller Scroller",
+  info: [{
+    text:'I am still a beginer at PHP development. I learned several valuable lessons while developing this app. The PHP component in this WordPress plugin simply handles the install of the plugin. It writes the list to the database when it changes and fetches it when the short code for the plugin appears on a page or post. It handles serving the list and other assets to the front end. I was thrilled to learn with a few days of study and reading I could learn enough PHP to scrape this together.'}]
+}
+const jsInFRS = {
+  title: "JavaScript in Fancy Roller Scroller",
+  info:[{
+    tag: 'p',
+    text: 'In this project I used client side JavaScript in two places. Firstly, on the rolling list animation itself. The list items are cycled and faded in and out. If implementation details of this type of animated text is interesting you you you can checkout my early prototyping of this part of the app on CodePen.io.',
+    hasClass: false},{tag: 'a',
+    text: 'FRS - Prototype',
+    linko: 'https://codepen.io/Tlandis/pen/qLVQxo'}, 
+    {
+      tag: 'p',
+      text: 'The second part of the project that required client-side JavaScript was the admin dashboard where the site owner can edit the list. Inside the WordPress admin dashboard, this component fetches the scrolling list and alows the user to modify list items and save them. The updated list can then be saved and appear on the end-user facing site.'}]
+}
 
     console.log(name)
+    if(name === 'jsInFRS'){
+this.setState({
+  title:jsInFRS.title,
+  info: jsInFRS.info
+})
+    }else if(name === 'phpInFRS'){
+      this.setState({
+        title:phpInFRS.title,
+        info: phpInFRS.info
+      })
+    }
   }
   render() {
     return (
       <div className="App">
         <div id="details">
-  <InitalDetails title={this.state.title} info={this.state.info} />
+        <h2> {this.state.title} </h2>
+
+          {
+ this.state.info.map((n) => n.tag === 'a' ? <FullCPembed linko={n.linko} text={n.text} /> : <InitalDetails title={n.title} info={n.text} />)
+          }
+ 
  
         </div>
         <div id="projects">
@@ -31,8 +66,8 @@ class App extends React.Component {
       <p>I made this plugin because one of my freelance clients requested a rolling list of products on their WordPress site. After completing the project, I contribued my plugin to the WordPress plugin repository. It passed a rigorus evaluation that all plugins submited to this opens source repository face. The plugin has been <strong>downloaded almost 700 times</strong> and is compatible with the current version of WordPress. </p>
     </div>
     <div className="badgeHolder">
-      <div className="badgeOfHonor js" id="js" onClick={(e)=>{this.updateDetails("js")}}><img alt="Unofficial JavaScript logo 2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/512px-Unofficial_JavaScript_logo_2.svg.png" /></div>
-      <div className="badgeOfHonor php"><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" /></div>
+      <div className="badgeOfHonor js" id="js" onClick={(e)=>{this.updateDetails("jsInFRS")}}><img alt="Unofficial JavaScript logo 2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/512px-Unofficial_JavaScript_logo_2.svg.png" /></div>
+      <div className="badgeOfHonor php" onClick={(e)=>{this.updateDetails("phpInFRS")}}><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" /></div>
       <div className="badgeOfHonor wp"><img src="https://upload.wikimedia.org/wikipedia/commons/2/20/WordPress_logo.svg" />
       </div>
   
