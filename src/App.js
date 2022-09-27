@@ -57,6 +57,11 @@ this.setState({
         title:phpInFRS.title,
         info: phpInFRS.info
       })
+    }else if (name === 'wpInFRS'){
+      this.setState({
+        title: wpInFRS.title,
+        info: wpInFRS.info
+      })
     }
   }
   render() {
