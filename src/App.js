@@ -15,6 +15,19 @@ class App extends React.Component {
     };
   }
   updateDetails(name){
+const wpInFRS = {
+  title: "Developing Fancy Roller Scroller for the WordPress ecosystem",
+  info:[
+    {
+      tag: 'p',
+      text: 'The WordPress plugin ecosystem is vast and mature.   There are best practices that must be adheared to and some diversity of opinion on how to implent code that will run along side an unknown number of other plugins that site administrators will install.  This project allowed me to explore this space and it was my first experience contributing to open source software.  I learned alot about software versioning and release repositories in the process of developing and releasing this plugin.'
+    },
+    {
+      tag: 'p',
+      text: 'I have installed countless plugins as I developed WordPress sites for clients.  This project helped me develop appriciation for the ammount of work it takes to develop and maintain even a simple plugin.  I do comprehensive testing to make sure that the plugin is still working as new versions of WordPress come out.'
+    }
+  ]
+}
 const phpInFRS = {
   title: "PHP in Fancy Roller Scroller",
   info: [{
@@ -68,7 +81,7 @@ this.setState({
     <div className="badgeHolder">
       <div className="badgeOfHonor js" id="js" onClick={(e)=>{this.updateDetails("jsInFRS")}}><img alt="Unofficial JavaScript logo 2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/512px-Unofficial_JavaScript_logo_2.svg.png" /></div>
       <div className="badgeOfHonor php" onClick={(e)=>{this.updateDetails("phpInFRS")}}><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" /></div>
-      <div className="badgeOfHonor wp"><img src="https://upload.wikimedia.org/wikipedia/commons/2/20/WordPress_logo.svg" />
+      <div className="badgeOfHonor wp" onClick={(e)=>{this.updateDetails('wpInFRS')}}><img src="https://upload.wikimedia.org/wikipedia/commons/2/20/WordPress_logo.svg" />
       </div>
   
     </div>
